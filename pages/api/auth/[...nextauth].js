@@ -45,7 +45,7 @@ const options = {
     })
   ],
   adapter: Adapters.TypeORM.Adapter(
-    `mongodb+srv://${process.env.MONGODB_UN}:${process.env.MONGODB_PASS}@{process.env.MONGODB_URL}/next-social`,
+    `mongodb+srv://${process.env.MONGODB_UN}:${process.env.MONGODB_PASS}@${process.env.MONGODB_URL}/next-social`,
     {
       models: {
         User: User.User

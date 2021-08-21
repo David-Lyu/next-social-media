@@ -45,7 +45,6 @@ function Form({ inputs, formName, config, submitFunc, csrfToken, onSubmit }) {
     onSubmit = async (e) => {
       e.preventDefault();
       let body = {};
-      console.log('start onSubmit');
       for (let i = 0; i < numOfInputs; i++) {
         if (!createState[i].state || !createState[i].state.value) {
           const message = 'Please fill out all the form inputs';
@@ -72,7 +71,6 @@ function Form({ inputs, formName, config, submitFunc, csrfToken, onSubmit }) {
         helpSetErrors(errors, setErrors, formName, '');
       }
 
-      console.log('after check errors');
       for (const key in errors) {
         const error = errors[key];
         if (error.hasError) {

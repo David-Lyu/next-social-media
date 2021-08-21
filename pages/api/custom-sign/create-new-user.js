@@ -1,7 +1,6 @@
 import Client from '../../../utils/lib/mongodb';
 
 async function handler(req, res) {
-  // console.log(req);
   const data = req.body;
   if (!req.method === 'POST') {
     return res.status(400).json({ error: 'invalid method' });

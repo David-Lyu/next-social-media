@@ -41,7 +41,6 @@ export default function GetMyUserPage(props) {
         return response.json();
       })
       .then((data) => {
-        console.log(data);
         postImageRef.current.value = null;
         postTextRef.current.value = null;
         setReRender(!reRender);
@@ -80,13 +79,12 @@ export default function GetMyUserPage(props) {
       (error) => {
         switch (error.code) {
           default:
-            console.log(error);
+            console.error(error);
         }
         setIsFormDisable(false);
       },
       () => {
         uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {
-          console.log(downloadURL);
           setImageUrl(downloadURL);
           setIsFormDisable(false);
         });
@@ -149,7 +147,6 @@ export async function getServerSideProps({ req, res }) {
  * - the name of the file
  */
 function getFileType(imageFile) {
-  console.log(imageFile);
   const ImageSplit = imageFile.split('.');
   const fileType = ImageSplit[ImageSplit.length - 1];
   return [fileType, ImageSplit[0]];

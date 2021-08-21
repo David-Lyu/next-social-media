@@ -16,7 +16,6 @@ export default async function handler(req, res) {
     $or: [{ friend1Id: id }, { friend2Id: id }]
   });
 
-  // console.log(users);
   const friends = [];
   await users.forEach((user) => {
     if (user.friend1Id === id) friends.push(user.friend2Id);

@@ -2,7 +2,6 @@ import Image from 'next/image';
 import styles from './Card.module.css';
 
 export default function Card({ post }) {
-  console.log(post);
   const { message, image, firstName, lastName, userImage } = post;
 
   return (

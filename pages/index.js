@@ -173,7 +173,6 @@ function showSignUpOrIn(signInElement, signUpElement, from) {
 }
 
 function handleClickOrPress(e, ...functions) {
-  // console.log(functions);
   if ((e.type === 'keyup' && e.key === 'Enter') || e.type === 'click') {
     for (const callable of functions) {
       callable();

@@ -7,7 +7,6 @@ export default async function handler(req, res) {
     req.method !== 'DELETE' &&
     req.method !== 'GET'
   ) {
-    console.log('inside method check');
     return res.status(400).json({ error: 'Method not allowed' });
   }
 
@@ -39,7 +38,6 @@ export default async function handler(req, res) {
       }
     ]
   });
-  console.log(friend);
 
   //What it do
   if (!friend) {
