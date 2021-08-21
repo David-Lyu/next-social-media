@@ -72,9 +72,10 @@ const options = {
   session: {
     jwt: true,
     maxAge: 30 * 24 * 60 * 60
-  }
+  },
+  debug: false
 };
 
 export default async function handler(req, res) {
-  await NextAuth(req, res, options);
+  await NextAuth(options);
 }
