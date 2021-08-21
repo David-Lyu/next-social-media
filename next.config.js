@@ -3,5 +3,5 @@ module.exports = {
   images: {
     domains: ['avatars.githubusercontent.com']
   },
-  target: 'server'
+  target: 'serverless'
 };
