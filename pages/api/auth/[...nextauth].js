@@ -44,11 +44,14 @@ const options = {
       }
     })
   ],
-  adapter: Adapters.TypeORM.Adapter('mongodb://localhost:27017/next-social', {
-    models: {
-      User: User.User
+  adapter: Adapters.TypeORM.Adapter(
+    `mongodb+srv://${process.env.MONGODB_UN}:${process.env.MONGODB_PASS}@{process.env.MONGODB_URL}/next-social`,
+    {
+      models: {
+        User: User.User
+      }
     }
-  }),
+  ),
   callbacks: {
     async session(session, token) {
       session.user = token;
