@@ -5,7 +5,7 @@ import { ref, getDownloadURL, uploadBytes } from 'firebase/storage';
 import styles from './[userId].module.css';
 
 import storage from '../../utils/lib/firebase/firebase';
-import Dashboard from '../../components/modules/user-page/Dashboard/Dashboard';
+import Dashboard from '../../components/modules/user-page/DashBoard/Dashboard';
 
 //look into router.replace to rerender?
 export default function GetMyUserPage(props) {
