@@ -3,7 +3,7 @@ import { getCsrfToken, useSession, getSession } from 'next-auth/client';
 import React, { useEffect, useState } from 'react';
 
 import styles from './[userId].module.css';
-import Dashboard from '../../components/modules/user-page/Dashboard/Dashboard';
+import Dashboard from '../../components/modules/user-page/DashBoard/Dashboard';
 
 //look into nextjs router.replace to rerender
 export default React.memo(function GetOtherUserPage(props) {
