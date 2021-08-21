@@ -14,7 +14,7 @@ export default React.memo(function GetOtherUserPage(props) {
   //data for this component
   const session = props.session;
   const friendId = router.query.userId;
-  const currentUserId = session.user.id;
+  const currentUserId = session?.user.id;
   const { firstName } = router.query;
   const lastName =
     router.query.lastName !== 'undefined' ? router.query.lastName : '';
