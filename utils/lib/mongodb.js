@@ -1,6 +1,7 @@
+require('dotenv').config;
 const { MongoClient } = require('mongodb');
-const uri =
-  'mongodb://localhost:27017/?readPreference=primary&appname=MongoDB%20Compass&directConnection=true&ssl=false';
+
+const uri = `mongodb+srv://${process.env.MONGODB_UN}:${process.env.MONGODB_PASS}@{process.env.MONGODB_URL}`;
 
 const Client = new MongoClient(uri, { useUnifiedTopology: true });
 
