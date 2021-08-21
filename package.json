@@ -1,0 +1,38 @@
+{
+  "name": "next-social-media",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/David-Lyu/next-social-media.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/David-Lyu/next-social-media/issues"
+  },
+  "homepage": "https://github.com/David-Lyu/next-social-media#readme",
+  "dependencies": {
+    "busboy": "^0.3.1",
+    "firebase": "^8.9.0",
+    "firebase-admin": "^9.11.0",
+    "mongodb": "^3.5.9",
+    "next": "11.0.1",
+    "next-auth": "^3.27.3",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-icons": "^4.2.0"
+  },
+  "devDependencies": {
+    "eslint": "7.29.0",
+    "eslint-config-next": "11.0.1"
+  }
+}

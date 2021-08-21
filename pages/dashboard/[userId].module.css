@@ -1,0 +1,8 @@
+.dashboard-parent {
+  /* changing it to grid when more components will be made */
+  /* display: grid */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}

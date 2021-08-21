@@ -1,0 +1,89 @@
+.grid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 800px;
+  margin-top: 3rem;
+}
+
+.logo {
+  height: 1em;
+  margin-left: 0.5rem;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* align-items: center; */
+  /* height: 20em; */
+}
+.main > * {
+  margin: 0 0 0.5em 0;
+  text-align: center;
+}
+
+.main section {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.signup-section > div {
+  max-width: 200px;
+}
+
+.signup-section > div > * {
+  margin-top: 1rem;
+}
+
+.register {
+  display: none;
+}
+
+.login > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+}
+
+.svg-icons {
+  margin-top: 5px;
+  height: 45px;
+}
+
+.svg-icons > * {
+  font-size: 2rem;
+  margin: 0 4px;
+  cursor: pointer;
+}
+
+.show-register-click a,
+.show-login-click a {
+  cursor: pointer;
+  color: var(--tertiary-color);
+}
+
+/* These 2 below is to toggle the signin and up options */
+
+@media (max-width: 600px) {
+  .grid {
+    width: 100%;
+    flex-direction: column;
+  }
+}
+
+@media screen and (min-width: 801px) {
+  .register {
+    display: block;
+  }
+  .login {
+    display: block;
+  }
+
+  .show-register-click,
+  .show-login-click {
+    display: none;
+  }
+}

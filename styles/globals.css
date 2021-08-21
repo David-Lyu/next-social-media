@@ -1,0 +1,211 @@
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  -webkit-text-size-adjust: 100%;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after {
+  content: '';
+  content: none;
+}
+
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+button,
+html input[type='button'] {
+  -webkit-appearance: button;
+  cursor: pointer;
+}
+
+input[type='reset'],
+input[type='submit'] {
+  -webkit-appearance: button;
+  cursor: pointer;
+}
+
+input:not([type='radio']):not([type='checkbox']) {
+  -webkit-appearance: none;
+}
+
+textarea,
+select {
+  -webkit-appearance: none;
+}
+
+mark {
+  background-color: transparent;
+  font-weight: bold;
+  color: inherit;
+}
+
+html,
+body {
+  font-family: Roboto, -apple-system, BlinkMacSystemFont, Segoe UI, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Custom CSS starts here ####################################################*/
+
+:root {
+  --main-color: #2980b9;
+  --secondary-color: #6dd5fa;
+  --tertiary-color: #ffffff;
+  --color: #29323c;
+}
+
+body {
+  color: var(--color);
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 1500px;
+  min-width: 363px;
+  margin: auto;
+}
+
+.row {
+  width: 90vw;
+}
+
+/* Specify html element because of cascade in Home.module.css .register*/
+div.show,
+section.show,
+.show {
+  display: block;
+}
+
+.hide {
+  display: none;
+}
+
+@media only screen and (max-width: 600px) {
+  .container {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+}

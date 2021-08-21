@@ -1,0 +1,60 @@
+.card-container {
+  border: 1px solid #d2d4dc;
+  -webkit-box-shadow: 1px 1px 1px 1px #ccc; /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+  -moz-box-shadow: 1px 1px 1px 1px #ccc; /* Firefox 3.5 - 3.6 */
+  box-shadow: 0 4px 8px 0 #ccc; /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
+  border-radius: 5px;
+  width: 50%;
+  margin: auto;
+  padding: 5px;
+  margin-bottom: 2em;
+}
+
+.card-container:hover {
+  -webkit-box-shadow: 1px 1px 1px 1px #ccc; /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+  -moz-box-shadow: 1px 1px 1px 1px #ccc; /* Firefox 3.5 - 3.6 */
+  box-shadow: 5px 8px 10px 0 #ccc; /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
+}
+
+.card-container > * {
+  padding: 10px;
+}
+
+.card-user {
+  display: flex;
+  align-items: center;
+}
+
+.card-user > h6 {
+  margin: 0;
+  margin-left: 5px;
+}
+
+.card-user img {
+  border-radius: 50px;
+}
+
+.card-image {
+  border: 1px solid #808080;
+  border-radius: 5px 5px 0 0;
+  border-bottom: none;
+  margin: auto;
+  position: relative;
+}
+
+.card-body {
+  border: 1px solid #808080;
+  border-radius: 0 0 5px 5px;
+  /* padding-top: 5px; */
+  font-size: 0.8rem;
+  margin: auto;
+  overflow: hidden;
+  max-height: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.card-body > * {
+  padding: 2px;
+}

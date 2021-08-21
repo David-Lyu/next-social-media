@@ -1,0 +1,17 @@
+.dashboard-module {
+  width: 50%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+@media screen and (max-width: 1300px) {
+  .dashboard-module {
+    width: 75%;
+  }
+}
+
+@media screen and (max-width: 835px) {
+  .dashboard-module {
+    width: 100%;
+  }
+}
