@@ -32,11 +32,13 @@ First, create a .env file with properties:
 Second, firebase is used to configure to store pictures of posts 
 
 - Go to /utils/lib/firebase/firebase.js and change the firebaseConfig
--- To get credentials please refer to docs [Firebase-Storage](https://firebase.google.com/docs/storage)
--- Also these credntials are no longer working
+  - To get credentials please refer to docs [Firebase-Storage](https://firebase.google.com/docs/storage)
+  - Also these credentials are no longer working
+
+Third, change mongodb uri at /utils/lib/mongodb.js and put in env variables
 
 
-Second, run the development server:
+Lastly, run the development server:
 
 ```bash
 npm run dev
