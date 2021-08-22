@@ -37,7 +37,7 @@ const options = {
         const results = await userCollection.findOne({
           email: credentials.username
         });
-        if (credentials.password === results.password) {
+        if (credentials.password === results?.password) {
           return results;
         }
         return false;
@@ -68,9 +68,6 @@ const options = {
       }
       return token;
     }
-  },
-  pages: {
-    error: '/api/auth/error'
   },
   session: {
     jwt: true,

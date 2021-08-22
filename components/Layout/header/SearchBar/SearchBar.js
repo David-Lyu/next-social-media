@@ -37,7 +37,6 @@ export default function SearchBar(props) {
   }
 
   useEffect(() => {
-    console.log(searchVal);
     if (searchVal.length > 0) {
       setParentZIndex(Styles['z-index-3']);
       setIsSearchClicked(true);

@@ -88,9 +88,17 @@ function Form({ inputs, formName, config, submitFunc, csrfToken, onSubmit }) {
       };
 
       const response = await (await fetch(config.url, fetchConfig)).json();
+      for (let i = 0; i < numOfInputs; i++) {
+        createState[i].state.value = '';
+        createState[i].setState(createState[i].state);
+      }
       if (!response) {
         const message = 'Could not get data';
-        helpSetErrors(errors, setErrors, formName, message);
+        return helpSetErrors(errors, setErrors, formName, message);
+      }
+      if (typeof submitFunc !== 'function') {
+        console.log('No submitFunc was given or not it is not a function');
+        return;
       }
       submitFunc(response);
     };

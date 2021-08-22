@@ -3,11 +3,12 @@ import styles from './Card.module.css';
 
 export default function Card({ post }) {
   const { message, image, firstName, lastName, userImage } = post;
+  console.log(firstName, lastName, image);
 
   return (
     <div className={styles['card-container']}>
       <div className={styles['card-user']}>
-        {<Image width="20px" height="20px" src={userImage} />}
+        {image && <Image width="20px" height="20px" src={userImage} />}
         <h6>{firstName + ' ' + lastName}</h6>
       </div>
       {image && (
