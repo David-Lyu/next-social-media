@@ -52,7 +52,6 @@ function Form({ inputs, formName, config, submitFunc, csrfToken, onSubmit }) {
           return;
         }
 
-        console.log('in on submit');
         //this creates the name for the data in the object making the label text into camelCase
         //by splitting into arrays and capitalizing the first letter of the string its
         //  split into except the first index(0) and then joins the arrays back together

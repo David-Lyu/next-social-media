@@ -127,7 +127,6 @@ export default function GetMyUserPage(props) {
 export async function getServerSideProps({ req, res }) {
   //fetch user here
   const session = await getSession({ req });
-  // console.log(session);
   if (!session) {
     return {
       redirect: {
