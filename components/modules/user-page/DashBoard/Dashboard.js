@@ -10,6 +10,7 @@ export default React.memo(function Dashboard({ user, reRender, url }) {
   const userId = user.id;
   const [isLoaded, setIsLoaded] = useState(false);
   const [posts, setPosts] = useState([]);
+  // console.log(user);
 
   useEffect(() => {
     //client side rendering to get post based on user id or profile id
@@ -19,6 +20,7 @@ export default React.memo(function Dashboard({ user, reRender, url }) {
       .then((data) => {
         setIsLoaded(true);
         setPosts(data.posts);
+        console.log(data);
       })
       .catch(console.error);
     // eslint-disable-next-line

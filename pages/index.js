@@ -4,7 +4,6 @@ import { useRouter } from 'next/router';
 import {
   signIn,
   signOut,
-  useSession,
   getProviders,
   getSession,
   getCsrfToken
@@ -17,16 +16,8 @@ import Form from '../components/modules/Form/form';
 
 export default function Home(props) {
   const router = useRouter();
-  const [session, loading] = useSession();
   const signUpEle = useRef(null);
   const signInEle = useRef(null);
-
-  let id = session?.user.urlPath || session?.user.id;
-  //can change callback from nextjs will work on this later
-  if (session) {
-    router.push('/profile/' + id);
-    // router.push('/profile/' + id, '/profile/' + session.user.name);
-  }
 
   //Form components
   const LOGIN_CONFIG = Object.freeze({
@@ -136,11 +127,21 @@ export default function Home(props) {
 }
 
 export async function getServerSideProps({ req, res }) {
-  const csrfToken = await getCsrfToken({ req });
+  const session = await getSession({ req });
+  console.log(session);
+  // console.log(csrfToken);
   //put redirect if user is logged in or is csrfToken is truthy
+
+  if (session) {
+    return {
+      redirect: {
+        destination: `/profile/${session.user.id}`
+      }
+    };
+  }
   return {
     props: {
-      csrfToken: csrfToken
+      session: session
     }
   };
 }
@@ -149,9 +150,11 @@ export async function getServerSideProps({ req, res }) {
 //need to get error handling
 function loginOnSubmit(e, signIn) {
   e.preventDefault();
-  const email = e.currentTarget.children[1].children[0].children[0].value;
-  const password = e.currentTarget.children[2].children[0].children[0].value;
-  signIn('credentials', { username: email, password, callback: '/' });
+  console.log(e.currentTarget.children);
+  const email = e.currentTarget.children[0].children[0].children[0].value;
+  const password = e.currentTarget.children[1].children[0].children[0].value;
+  console.log(email, password);
+  signIn('credentials', { username: email, password });
 }
 
 function showSignUpOrIn(signInElement, signUpElement, from) {

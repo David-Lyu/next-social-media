@@ -37,7 +37,7 @@ const options = {
         const results = await userCollection.findOne({
           email: credentials.username
         });
-        if (credentials.password === results.password) {
+        if (credentials.password === results?.password) {
           return results;
         }
         return false;
@@ -53,6 +53,14 @@ const options = {
     }
   ),
   callbacks: {
+    async redirect(url, baseUrl) {
+      return url.startsWith(baseUrl);
+    },
+    async signIn(user, account, profile) {
+      // console.log('inside signin', user);
+      // console.log(account);
+      // console.log(profile);
+    },
     async session(session, token) {
       session.user = token;
       if (token.sub) {
@@ -64,13 +72,11 @@ const options = {
       //according to docs user,profile, isNewUser are only truthy
       // when you first sign in...
       if (user) {
+        // console.log(user);
         token.id = user._id;
       }
       return token;
     }
-  },
-  pages: {
-    error: '/api/auth/error'
   },
   session: {
     jwt: true,

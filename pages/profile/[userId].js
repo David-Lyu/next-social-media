@@ -14,6 +14,7 @@ export default function GetMyUserPage(props) {
   const [imageUrl, setImageUrl] = useState('');
   const [isFormDisable, setIsFormDisable] = useState(false);
   const [reRender, setReRender] = useState(false);
+  // console.log(props);
 
   const onPostSubmit = (e) => {
     e.preventDefault();
@@ -126,6 +127,7 @@ export default function GetMyUserPage(props) {
 export async function getServerSideProps({ req, res }) {
   //fetch user here
   const session = await getSession({ req });
+  // console.log(session);
   if (!session) {
     return {
       redirect: {
