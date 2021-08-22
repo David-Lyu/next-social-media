@@ -53,9 +53,6 @@ const options = {
     }
   ),
   callbacks: {
-    async redirect(url, baseUrl) {
-      return url.startsWith(baseUrl);
-    },
     async signIn(user, account, profile) {
       // console.log('inside signin', user);
       // console.log(account);

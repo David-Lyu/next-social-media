@@ -4,11 +4,12 @@ import { useRouter } from 'next/router';
 import {
   signIn,
   signOut,
+  useSession,
   getProviders,
   getSession,
   getCsrfToken
 } from 'next-auth/client';
-import { useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { AiFillGithub, AiOutlineMail } from 'react-icons/ai';
 
 import styles from '../styles/Home.module.css';
@@ -18,6 +19,16 @@ export default function Home(props) {
   const router = useRouter();
   const signUpEle = useRef(null);
   const signInEle = useRef(null);
+  const [session, loading] = useSession();
+  const [error, setError] = useState();
+
+  useEffect(() => {
+    if (session) {
+      let id = session?.user.urlPath || session?.user.id;
+      router.push('/profile/' + id);
+    }
+    //eslint-disable-next-line
+  }, [session]);
 
   //Form components
   const LOGIN_CONFIG = Object.freeze({
@@ -88,7 +99,7 @@ export default function Home(props) {
               formName="Login"
               csrfToken={props.csrfToken}
               onSubmit={(e) => {
-                loginOnSubmit(e, signIn);
+                loginOnSubmit(e, signIn, setError);
               }}></Form>
             <div>
               <p>Or signin/signup with these:</p>
@@ -128,10 +139,6 @@ export default function Home(props) {
 
 export async function getServerSideProps({ req, res }) {
   const session = await getSession({ req });
-  console.log(session);
-  // console.log(csrfToken);
-  //put redirect if user is logged in or is csrfToken is truthy
-
   if (session) {
     return {
       redirect: {
@@ -148,13 +155,16 @@ export async function getServerSideProps({ req, res }) {
 
 //helper functions
 //need to get error handling
-function loginOnSubmit(e, signIn) {
+async function loginOnSubmit(e, signIn, setError) {
   e.preventDefault();
-  console.log(e.currentTarget.children);
   const email = e.currentTarget.children[0].children[0].children[0].value;
   const password = e.currentTarget.children[1].children[0].children[0].value;
-  console.log(email, password);
-  signIn('credentials', { username: email, password });
+  const result = await signIn('credentials', {
+    username: email,
+    password,
+    redirect: false
+  });
+  if (result.error) setError(result.status);
 }
 
 function showSignUpOrIn(signInElement, signUpElement, from) {
