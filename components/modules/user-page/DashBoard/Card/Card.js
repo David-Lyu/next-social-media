@@ -3,7 +3,6 @@ import styles from './Card.module.css';
 
 export default function Card({ post }) {
   const { message, image, firstName, lastName, userImage } = post;
-  console.log(image);
 
   return (
     <div className={styles['card-container']}>
