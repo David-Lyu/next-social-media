@@ -14,7 +14,6 @@ export default function GetMyUserPage(props) {
   const [imageUrl, setImageUrl] = useState('');
   const [isFormDisable, setIsFormDisable] = useState(false);
   const [reRender, setReRender] = useState(false);
-  // console.log(props);
 
   const onPostSubmit = (e) => {
     e.preventDefault();
