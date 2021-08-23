@@ -29,6 +29,8 @@ export default function GetMyUserPage(props) {
       image: imageUrl
     };
 
+    console.log(formData);
+
     const config = {
       method: 'POST',
       body: JSON.stringify(formData),
@@ -44,6 +46,7 @@ export default function GetMyUserPage(props) {
         postImageRef.current.value = null;
         postTextRef.current.value = null;
         setReRender(!reRender);
+        setImageUrl('');
       });
 
     return null;
@@ -51,6 +54,8 @@ export default function GetMyUserPage(props) {
 
   //sends the file to firebase
   const imageOnChange = () => {
+    //should get something to get id from db maybe?
+    const randNum = Math.floor(Math.random() * 10000) + 1;
     setIsFormDisable(true);
     const imageFile = getFileType(postImageRef.current.value);
     const fileType = imageFile[0];
@@ -59,7 +64,7 @@ export default function GetMyUserPage(props) {
       contentType: 'image/' + fileType
     };
     const uploadTask = storageRef
-      .child('images/test')
+      .child('images/test' + randNum)
       .put(postImageRef.current.files[0], metadata);
     uploadTask.on(
       'state_changed',
@@ -84,9 +89,10 @@ export default function GetMyUserPage(props) {
         setIsFormDisable(false);
       },
       () => {
-        uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {
-          setImageUrl(downloadURL);
-          setIsFormDisable(false);
+        uploadTask.snapshot.ref.getDownloadURL().then(async (downloadURL) => {
+          console.log(downloadURL);
+          await setImageUrl(downloadURL);
+          await setIsFormDisable(false);
         });
       }
     );
