@@ -29,8 +29,6 @@ export default function GetMyUserPage(props) {
       image: imageUrl
     };
 
-    console.log(formData);
-
     const config = {
       method: 'POST',
       body: JSON.stringify(formData),
