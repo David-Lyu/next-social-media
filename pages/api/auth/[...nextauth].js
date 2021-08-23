@@ -64,6 +64,8 @@ const options = {
       //according to docs user,profile, isNewUser are only truthy
       // when you first sign in...
       if (user) {
+        token.firstName = user.firstName;
+        token.lastName = user.lastName;
         token.id = user._id;
       }
       return token;
