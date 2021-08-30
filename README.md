@@ -1,4 +1,4 @@
-See live demo here: [Click here](<a href="https://davidlyu-social-media.herokuapp.com/" target="_blank">example</a>)
+See live demo here: [Click here](https://davidlyu-social-media.herokuapp.com/){:target="_blank"}
 - Demo for storing photos currently disabled
 
 
